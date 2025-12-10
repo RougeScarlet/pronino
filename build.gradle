@@ -1,0 +1,15 @@
+// Trova o aggiungi questo blocco nel tuo file build.gradle
+jar {
+    from sourceSets.main.output
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    
+    // Configura il manifest per il JAR finale
+    manifest {
+        attributes(
+            'Fabric-Loom-Version': project.loom_version,
+            'Mod-Version': project.mod_version,
+            'Mod-Provider': 'DuplicationModCreator',
+            'Class-Path': ''
+        )
+    }
+}
